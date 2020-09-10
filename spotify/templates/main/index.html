@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+<main class="main">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-3">
+                <form action="{{ url_for('ajax.new_order') }}">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">邮箱</label>
+                        <input name="email" type="text" class="form-control" id="exampleInputEmail1"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">密码</label>
+                        <input name="password" type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">提交</button>
+                    <span class="num-detail">成功提交单数:<span>{{ num_completed }}</span></span>
+                </form>
+
+                <form action="{{ url_for('ajax.new_orders')}}">
+                    <div class="form-group">
+                        <label for="ControlTextarea">账号</label>
+                        <textarea name="orders" class="form-control" id="ControlTextarea" rows="3"
+                                  placeholder="格式：账户 密码 注：用空格隔开"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">批量提交</button>
+                </form>
+
+
+                <form action="{{ url_for('ajax.new_links')}}">
+
+                    <div class="form-group">
+                        <label for="ControlTextarea">链接</label>
+                        <textarea name="links" class="form-control" id="ControlTextarea" rows="3"
+                                  placeholder="格式：链接1 链接2 注：用空格隔开"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">批量提交</button>
+                    <span class="num-detail">可用链接数:<span>{{ num_links }}</span></span>
+
+                </form>
+
+            </div>
+            <div class="col-md-9">
+                <h3>未完成的订单</h3>
+                <div id="table">
+                    <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
+                        <thead>
+                        <tr>
+                            <td>邮箱</td>
+                            <td>密码</td>
+                            <td>订单状态</td>
+                            <td>下单时间</td>
+                            <td>操作</td>
+                        </tr>
+                        </thead>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{ order.email }}</td>
+                            <td>{{ order.password }}</td>
+                            {% if order.status=='正在处理' %}
+                            <td class="btn-runing">
+                                {{order.status}}
+                            </td>
+                            {% elif order.status=='处理成功' %}
+                            <td class="btn-ok">
+                                {{order.status}}
+                            </td>
+                            {% else %}
+                            <td class="btn-error">
+                                {{order.status}}
+                            </td>
+                            {% endif %}
+                            <td>{{ moment(order.timestamp).format('L')}} <small>{{
+                                (moment(order.timestamp).fromNow(refresh=True)) }}</small></td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm profile-popover "
+                                        data-href="{{ url_for('ajax.get_detail',order_id=order.id) }}">查看详情
+                                </button>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock %}

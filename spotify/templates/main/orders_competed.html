@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+<main class="main">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <h3>已完成的订单</h3>
+                <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
+                    <thead>
+                    <tr>
+                        <td>邮箱</td>
+                        <td>密码</td>
+                        <td>下单时间</td>
+
+                    </tr>
+                    </thead>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.email}}</td>
+                        <td>{{ order.password }}</td>
+                        <td>{{ moment(order.timestamp).format('L')}} <small>{{
+                            (moment(order.timestamp).fromNow(refresh=True)) }}</small></td>
+                        <td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% if orders %}
+                <div class="page-footer">
+                    {{ render_pagination(pagination, align='center') }}
+                </div>
+                {% endif %}
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock %}

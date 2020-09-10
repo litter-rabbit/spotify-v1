@@ -1,0 +1,2129 @@
+2020-09-08 23:00:01,886 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 270, in decorated_view
+    elif not current_user.is_authenticated:
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\spotify\extendtions.py", line 28, in load_user
+    user = Admin.query.get(username)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 1018, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 1135, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3463, in one
+    ret = self.one_or_none()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3432, in one_or_none
+    ret = list(self)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3533, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: admin
+[SQL: SELECT admin.username AS admin_username, admin.passwrod AS admin_passwrod 
+FROM admin 
+WHERE admin.username = ?]
+[parameters: ('admin',)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-09-08 23:00:02,035 - spotify - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: admin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\spotify\__init__.py", line 107, in page_not_found
+    return render_template('errors/404.html'), 404
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 136, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 838, in update_template_context
+    context.update(func())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 379, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\spotify\extendtions.py", line 28, in load_user
+    user = Admin.query.get(username)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 1018, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 1135, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\loading.py", line 286, in load_on_pk_identity
+    return q.one()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3463, in one
+    ret = self.one_or_none()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3432, in one_or_none
+    ret = list(self)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3508, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\orm\query.py", line 3533, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\sql\elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\sqlalchemy\engine\default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: admin
+[SQL: SELECT admin.username AS admin_username, admin.passwrod AS admin_passwrod 
+FROM admin 
+WHERE admin.username = ?]
+[parameters: ('admin',)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-09-09 15:04:23,716 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 270, in decorated_view
+    elif not current_user.is_authenticated:
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\local.py", line 347, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\local.py", line 306, in _get_current_object
+    return self.__local()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\extendtions.py", line 27, in load_user
+    from spotify1.models import Admin
+ModuleNotFoundError: No module named 'spotify1'
+2020-09-09 15:04:23,885 - spotify - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\__init__.py", line 107, in page_not_found
+    return render_template('errors/404.html'), 404
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 136, in render_template
+    ctx.app.update_template_context(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 838, in update_template_context
+    context.update(func())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 379, in _user_context_processor
+    return dict(current_user=_get_user())
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 346, in _get_user
+    current_app.login_manager._load_user()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 329, in _load_user
+    user = self._load_user_from_remember_cookie(cookie)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\login_manager.py", line 372, in _load_user_from_remember_cookie
+    user = self._user_callback(user_id)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\extendtions.py", line 27, in load_user
+    from spotify1.models import Admin
+ModuleNotFoundError: No module named 'spotify1'
+2020-09-09 20:05:22,766 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:23,006 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 23, in index
+    return render_template('main/index.html',orders=orders,page=page,pagination=pagination)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\index.html", line 3, in top-level template code
+    {% from 'bootstrap/form.html' import render_form %}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\base.html", line 16, in top-level template code
+    {% block nav%}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\base.html", line 26, in block "nav"
+    <a class="nav-link" href="{{url_for('main.links')}}">订单记录</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.links'. Did you mean 'main.index' instead?
+2020-09-09 20:05:23,094 - spotify - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1926, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1908, in raise_routing_exception
+    raise request.routing_exception
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\ctx.py", line 350, in match_request
+    result = self.url_adapter.match(return_rule=True)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 1945, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1816, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1744, in handle_http_exception
+    return handler(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\__init__.py", line 107, in page_not_found
+    return render_template('errors/404.html'), 404
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\errors\404.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\base.html", line 16, in top-level template code
+    {% block nav%}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\base.html", line 26, in block "nav"
+    <a class="nav-link" href="{{url_for('main.links')}}">订单记录</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'main.links'. Did you mean 'main.index' instead?
+2020-09-09 20:05:23,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:27,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:28,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:32,758 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:33,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:37,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:38,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:42,758 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:43,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:47,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:48,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:52,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:53,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:57,769 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:05:58,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:02,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:03,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:07,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:08,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:12,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:13,759 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:17,766 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:18,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:22,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:23,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:27,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:28,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:32,759 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:33,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:37,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:38,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:42,754 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:43,754 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:47,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:48,759 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:52,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:53,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:57,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:06:58,761 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:03,268 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:03,754 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:07,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:08,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:12,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:13,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:17,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:18,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:22,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:23,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:27,762 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:28,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:32,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:33,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:37,754 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:38,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:42,760 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:43,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:47,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:48,754 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:52,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:53,757 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:57,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:07:58,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:08:02,755 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:08:03,756 - spotify - ERROR - Exception on /ajax/get/orders [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 77, in get_orders
+    pagination=Order.query.filter_by(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:08:23,704 - spotify - ERROR - Exception on /links [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 33, in orders
+    pagination=Order.query.filter_by(Order.status=='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
+TypeError: filter_by() takes 1 positional argument but 2 were given
+2020-09-09 20:21:35,070 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 19, in index
+    un_orders=orders.filter(Order.status!='处理成功').order_by(Order.timestamp.desc())
+AttributeError: 'list' object has no attribute 'filter'
+2020-09-09 20:21:36,843 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 19, in index
+    un_orders=orders.filter(Order.status!='处理成功').order_by(Order.timestamp.desc())
+AttributeError: 'list' object has no attribute 'filter'
+2020-09-09 20:21:39,509 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 19, in index
+    un_orders=orders.filter(Order.status!='处理成功').order_by(Order.timestamp.desc())
+AttributeError: 'list' object has no attribute 'filter'
+2020-09-09 20:22:35,194 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 20, in index
+    num_uncompleted=len(un_orders.items)
+AttributeError: 'WhoosheeQuery' object has no attribute 'items'
+2020-09-09 20:22:36,768 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 20, in index
+    num_uncompleted=len(un_orders.items)
+AttributeError: 'WhoosheeQuery' object has no attribute 'items'
+2020-09-09 20:23:00,912 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 20, in index
+    num_uncompleted=len(un_orders)
+TypeError: object of type 'WhoosheeQuery' has no len()
+2020-09-09 20:23:25,716 - spotify - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\main.py", line 23, in index
+    return render_template('main/index.html',orders=un_orders,num_completed=num_completed,num_uncompleted=num_uncompleted)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\index.html", line 3, in top-level template code
+    {% from 'bootstrap/form.html' import render_form %}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\base.html", line 48, in top-level template code
+    {% block content %}{% endblock %}
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\index.html", line 96, in block "content"
+    {{ render_pagination(pagination, align='center') }}
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\runtime.py", line 679, in _invoke
+    rv = self._func(*arguments)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_bootstrap\templates\bootstrap\pagination.html", line 57, in template
+    <li class="page-item {% if not pagination.has_prev %}disabled{% endif %}">
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 471, in getattr
+    return getattr(obj, attribute)
+jinja2.exceptions.UndefinedError: 'pagination' is undefined
+2020-09-10 16:25:06,637 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:09,089 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:11,242 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:26,019 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:32,741 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:33,599 - spotify - ERROR - Exception on /ajax/get/detail/6 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:35,504 - spotify - ERROR - Exception on /ajax/get/detail/6 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:25:36,168 - spotify - ERROR - Exception on /ajax/get/detail/7 [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 101, in get_detail
+    return render_template('main/detail_poppu.html',order=order,buy_times=buy_times)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 140, in render_template
+    ctx.app,
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\templating.py", line 120, in _render
+    rv = template.render(context)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\jinja2\_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\templates\main\detail_poppu.html", line 26, in top-level template code
+    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order') }}">删除</a>
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\werkzeug\routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'ajax.delete_order'. Did you forget to specify values ['order_id']?
+2020-09-10 16:40:08,723 - spotify - ERROR - Exception on /ajax/parse/order [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 33, in new_order
+    pool.join()
+  File "D:\pyhton\python3.6.1\lib\multiprocessing\pool.py", line 509, in join
+    assert self._state in (CLOSE, TERMINATE)
+AssertionError
+2020-09-10 17:25:28,923 - spotify - ERROR - Exception on /ajax/parse/order [GET]
+Traceback (most recent call last):
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\webproject\flaskproject\spotify-upgrade\env\lib\site-packages\flask_login\utils.py", line 272, in decorated_view
+    return func(*args, **kwargs)
+  File "D:\webproject\flaskproject\spotify-upgrade\spotify\blueprints\ajax.py", line 34, in new_order
+    get.delay(e,p,link)
+AttributeError: 'function' object has no attribute 'delay'
