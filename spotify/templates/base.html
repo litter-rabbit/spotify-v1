@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta Keywords="spotify" content="管理平台"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"/>
     <link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico')}}">
@@ -59,14 +58,9 @@
 
 
 {% block scripts %}
-<script src="{{url_for('static',filename='js/popper.min.js')}}"></script>
 <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-<script src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
-
-{{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
-{{ moment.locale('zh-cn') }}
 
 {% endblock %}
 

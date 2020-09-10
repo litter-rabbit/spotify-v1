@@ -61,6 +61,11 @@ def register_logging(app):
     if not app.debug:
         app.logger.addHandler(file_handler)
 
+def register_filter(app):
+    @app.template_filter('formattime')
+    def formattime(datetime):
+        time_str=str(datetime)
+        return time_str[:19]
 
 def register_command(app):
     @app.cli.command()
@@ -122,4 +127,5 @@ register_extendtions(app)
 register_blueprints(app)
 register_command(app)
 register_errorhandlers(app)
+register_filter(app)
 

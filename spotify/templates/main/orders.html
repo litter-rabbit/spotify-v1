@@ -28,17 +28,13 @@
                 {{order.status}}
                 {% endif %}
             </td>
-            <td>{{ moment(order.timestamp).format('L')}} <small>{{ (moment(order.timestamp).fromNow(refresh=True))
-                }}</small></td>
+            <td>{{ order.timestamp|formattime}}
+                </td>
             <td>
-                <button type="button" class="btn btn-primary btn-sm profile-popover "
-                        data-href="{{ url_for('ajax.get_detail',order_id=order.id) }}">查看详情
-                </button>
+                 <a class="btn btn-danger" href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
             </td>
         </tr>
         {% endfor %}
     </table>
 
 </div>
- {{ moment.locale('zh-cn') }}
-{{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
