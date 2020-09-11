@@ -14,7 +14,7 @@ from spotify.models import Admin
 from spotify.extendtions import db
 from spotify.models import Order
 import os
-
+import datetime as date
 
 
 
@@ -64,7 +64,9 @@ def register_logging(app):
 def register_filter(app):
     @app.template_filter('formattime')
     def formattime(datetime):
-        time_str=str(datetime)
+        ZH_time=date.timedelta(hours=8)+datetime
+        time_str=str(ZH_time)
+
         return time_str[:19]
 
 def register_command(app):

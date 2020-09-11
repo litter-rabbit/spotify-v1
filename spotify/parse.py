@@ -129,7 +129,7 @@ def get_link(order, driver):
 def get(email, password, link):
     option = webdriver.ChromeOptions()
     option.add_argument('--no-sandbox')
-    option.add_argument('--headless')
+    #option.add_argument('--headless')
     option.add_argument('--disable-gpu')
     option.add_argument('--hide-scrollbars')
     option.add_argument('blink-settings=imagesEnabled=false')
@@ -192,7 +192,10 @@ def get(email, password, link):
             retry_times -= 1
             result = confirm_address(driver,link)
             if retry_times == 0:
-                order.status = '网络中断，请稍后重试'
+                if result=='You need to live at the same address':
+                    order.status = '地址不匹配'
+                else:
+                    order.status='网络中断，稍后重试'
                 db.session.commit()
                 driver.close()
                 driver.quit()
