@@ -3,7 +3,6 @@
 
 from flask import Blueprint,render_template,request,current_app
 from flask_login import login_required
-
 from spotify.models import Order,Link
 
 
@@ -11,10 +10,8 @@ from spotify.models import Order,Link
 main_bp=Blueprint('main',__name__)
 
 @main_bp.route('/',methods=['GET','POST'])
-@login_required
 def index():
     #
-
     count_num=Order.query.count()
     un_orders=Order.query.filter(Order.status!='处理成功').order_by(Order.timestamp.desc()).all()
     orders_competed=Order.query.filter(Order.status=='处理成功').order_by(Order.timestamp.desc()).limit(current_app.config['PER_PAGE'])
@@ -29,9 +26,7 @@ def index():
 
 
 @main_bp.route('/links',methods=['GET','POST'])
-@login_required
 def links():
-    #
     per_page=current_app.config['PER_PAGE']
     page=request.args.get('page',1)
     page=int(page)

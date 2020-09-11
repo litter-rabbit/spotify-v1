@@ -200,6 +200,12 @@ def get(email, password, link):
                 driver.close()
                 driver.quit()
                 return None
+        elif result=='There was a problem':
+            order.status='账号异常'
+            db.session.commit()
+            driver.close()
+            driver.quit()
+            return None
         else:
             # 获取下个链接
             link.isvalid=False
