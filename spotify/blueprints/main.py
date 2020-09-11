@@ -15,26 +15,17 @@ main_bp=Blueprint('main',__name__)
 def index():
     #
 
-    orders=Order.query.all()
+    count_num=Order.query.count()
     un_orders=Order.query.filter(Order.status!='处理成功').order_by(Order.timestamp.desc()).all()
+    orders_competed=Order.query.filter(Order.status=='处理成功').order_by(Order.timestamp.desc()).limit(current_app.config['PER_PAGE'])
     links=Link.query.filter(Link.isvalid==True).all()
     num_links=len(links)
     num_uncompleted=len(un_orders)
-    num_completed=len(orders)-num_uncompleted
-
-    return render_template('main/index.html',orders=un_orders,num_completed=num_completed,num_links=num_links)
+    num_completed=count_num-num_uncompleted
 
 
-@main_bp.route('/orders_completed',methods=['GET','POST'])
-@login_required
-def orders():
-    #
-    per_page=current_app.config['PER_PAGE']
-    page=request.args.get('page',1)
-    page=int(page)
-    pagination=Order.query.filter(Order.status=='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
-    orders=pagination.items
-    return render_template('main/orders_competed.html',orders=orders,page=page,pagination=pagination)
+    return render_template('main/index.html',orders=un_orders,num_completed=num_completed,num_links=num_links,orders_competed=orders_competed)
+
 
 
 @main_bp.route('/links',methods=['GET','POST'])

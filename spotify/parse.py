@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-import selenium.common.exceptions as ex
 import time
 from spotify.extendtions import db
 from spotify.models import Link, Order
@@ -84,7 +83,15 @@ def confirm_address(driver, link):
         if driver.current_url == 'https://www.spotify.com/us/family/join/confirmation/':
             return 'success'
         else:
-            return 'retry'
+            try:
+                msg = WebDriverWait(driver, 30, 0.5).until(
+                    EC.presence_of_element_located(
+                        (By.XPATH, '/html/body/div[2]/main/div/section/h1'))
+                )
+                return msg.text
+            except Exception as e:
+                return 'retry'
+
 
     except Exception as e:
 
@@ -133,7 +140,7 @@ def get(email, password, link):
     db.session.commit()
 
     # 处理登录问题
-    retry_times = 6
+    retry_times = 7
     login_result = login(driver, email, password)
     while login_result != 'login success':
         retry_times -= 1
@@ -152,7 +159,7 @@ def get(email, password, link):
             return None
 
     # 修改账号地区
-    retry_times = 6
+    retry_times = 7
     profile_result=change_profile(driver)
     while profile_result == 'retry':
         profile_result=retry_change_profile(driver)
@@ -164,7 +171,7 @@ def get(email, password, link):
             driver.quit()
             return None
     # 进入邀请链接
-    retry_times = 6
+    retry_times = 7
     result = confirm_address(driver, link)
     while result != 'success':
         if result == 'already family':
@@ -180,7 +187,7 @@ def get(email, password, link):
             driver.close()
             driver.quit()
             return None
-        elif result=='retry_not_change_link':
+        elif result=='retry_not_change_link' or result=='You need to live at the same address':
             #    时间超时了
             retry_times -= 1
             result = confirm_address(driver,link)

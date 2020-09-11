@@ -31,26 +31,15 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">批量提交</button>
+                     <span class="num-detail">可用链接数:<span>{{ num_links }}</span></span>
                 </form>
 
-
-                <form action="{{ url_for('ajax.new_links')}}">
-
-                    <div class="form-group">
-                        <label for="ControlTextarea">链接</label>
-                        <textarea name="links" class="form-control" id="ControlTextarea" rows="3"
-                                  placeholder="格式：链接1 链接2 注：用空格隔开"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">批量提交</button>
-                    <span class="num-detail">可用链接数:<span>{{ num_links }}</span></span>
-
-                </form>
 
             </div>
             <div class="col-md-9">
-                <h3>未完成的订单</h3>
+
                 <div id="table">
+                    <h3>未完成的订单</h3>
                     <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
                         <thead>
                         <tr>
@@ -86,6 +75,25 @@
                         </tr>
                         {% endfor %}
                     </table>
+                <hr>
+                <hr>
+                      <h3>已完成的订单</h3>
+                <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
+                    <thead>
+                    <tr>
+                        <td>邮箱</td>
+                        <td>下单时间</td>
+                        <td>到期时间</td>
+                    </tr>
+                    </thead>
+                    {% for order in orders_competed %}
+                    <tr>
+                        <td>{{ order.email}}</td>
+                        <td>{{ order.timestamp|formattime }}</td>
+                        <td>{{ order.expiretime|formattime }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
 
                 </div>
 

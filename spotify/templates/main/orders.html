@@ -1,6 +1,8 @@
 {% from 'bootstrap/pagination.html' import render_pagination %}
 
-<div id="#table">
+
+<div id="table">
+    <h3>未完成的订单</h3>
     <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
         <thead>
         <tr>
@@ -12,28 +14,47 @@
         </tr>
         </thead>
         {% for order in orders %}
-        <tr>
-            <td>{{ order.email }}</td>
-            <td>{{ order.password }}</td>
-            {% if order.status=='正在处理' %}
-            <td class="btn-runing">
-                {{order.status}}
-            </td>
-            {% elif order.status=='处理成功' %}
-            <td class="btn-ok">
-                {{order.status}}
-            </td>
-            {% else %}
-            <td class="btn-error">
-                {{order.status}}
+            <tr>
+                <td>{{ order.email }}</td>
+                <td>{{ order.password }}</td>
+                {% if order.status=='正在处理' %}
+                    <td class="btn-runing">
+                        {{ order.status }}
+                    </td>
+                {% elif order.status=='处理成功' %}
+                    <td class="btn-ok">
+                        {{ order.status }}
+                    </td>
+                {% else %}
+                    <td class="btn-error">
+                        {{ order.status }}
+                    </td>
                 {% endif %}
-            </td>
-            <td>{{ order.timestamp|formattime}}
+                <td>{{ order.timestamp|formattime }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
                 </td>
-            <td>
-                 <a class="btn btn-danger" href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
-            </td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    <hr>
+    <hr>
+    <h3>已完成的订单</h3>
+    <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
+        <thead>
+        <tr>
+            <td>邮箱</td>
+            <td>下单时间</td>
+            <td>到期时间</td>
         </tr>
+        </thead>
+        {% for order in orders_competed %}
+            <tr>
+                <td>{{ order.email }}</td>
+                <td>{{ order.timestamp|formattime }}</td>
+                <td>{{ order.expiretime|formattime }}</td>
+            </tr>
         {% endfor %}
     </table>
 

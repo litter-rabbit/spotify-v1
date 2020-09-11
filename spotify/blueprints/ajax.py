@@ -9,8 +9,7 @@ from spotify.parse import get
 
 ajax_bp=Blueprint('ajax',__name__)
 
-def test(x):
-    print(x)
+
 
 
 
@@ -79,19 +78,17 @@ def new_links():
         db.session.add(link)
     db.session.commit()
 
-    return redirect(url_for('main.index'))
+    return redirect(url_for('main.links'))
 
 
 @ajax_bp.route('/get/orders',methods=['POST','GET'])
 @login_required
 def get_orders():
-    per_page=current_app.config['PER_PAGE']
-    page=request.args.get('page',1)
-    page=int(page)
-    pagination=Order.query.filter(Order.status!='处理成功').order_by(Order.timestamp.desc()).paginate(page,per_page)
-    orders=pagination.items
-    return render_template('main/orders.html',orders=orders,page=page,pagination=pagination)
 
+    un_orders = Order.query.filter(Order.status != '处理成功').order_by(Order.timestamp.desc()).all()
+    orders_competed = Order.query.filter(Order.status == '处理成功').order_by(Order.timestamp.desc()).limit(
+    current_app.config['PER_PAGE'])
+    return render_template('main/orders.html',orders=un_orders,orders_competed=orders_competed)
 
 
 @ajax_bp.route('/get/detail/<order_id>',methods=['POST','GET'])
