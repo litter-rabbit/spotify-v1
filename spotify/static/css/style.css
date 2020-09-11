@@ -65,3 +65,14 @@ footer {
 .footer-canvas p{
     text-align: center;
 }
+.list-group-item{
+    padding: 2px;
+    background:  rgba(26, 26, 26, 0.2);
+}
+.card{
+
+}
+.mycard{
+    margin: 8px;
+
+}
