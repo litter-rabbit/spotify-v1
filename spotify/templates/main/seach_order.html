@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/pagination.html' import render_pagination %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+    <main class="main">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+
+                <div class="col-md-8">
+                    <h3>历史订单  <span>{{ num_orders }}</span></h3>
+                    <div class="input-group">
+                        <form id="search_group" class="form-inline my-2 my-lg-0" action="{{ url_for('main.search') }}">
+                            <div class="input-group-prepend">
+                                <button type="submit" class="btn btn-secondary">搜索</button>
+                            </div>
+                            <input style="width: 350px" id="search-input" type="text" name="email" class="form-control"
+                                   placeholder="邮箱名称"
+                                   aria-label="Input group example"
+                                   aria-describedby="btnGroupAddon2">
+                        </form>
+                    </div>
+                    {% for order in orders %}
+                        <div class="mycard" style="display: inline-block ;">
+                            <div class="card" style="width: 18rem; ">
+                                <ul >
+                                    <li><span>用户名: </span>{{ order.email }}</li>
+                                    <li><span>下单时间: </span>{{ order.timestamp|formattime }}</li>
+                                    <li><span>到期时间: </span>{{ order.expiretime|formattime }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% if orders %}
+                        <div class="page-footer">
+                            {{ render_pagination(pagination, align='center') }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <div class="col-md-2">
+
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+
+{% endblock %}

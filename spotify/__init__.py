@@ -8,7 +8,7 @@ from spotify.models import Link
 
 import click
 import logging
-from logging.handlers import SMTPHandler, RotatingFileHandler
+from logging.handlers import  RotatingFileHandler
 from spotify.models import Admin
 
 from spotify.extendtions import db

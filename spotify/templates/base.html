@@ -24,6 +24,9 @@
              <li class="nav-item ">
                 <a class="nav-link" href="{{url_for('main.links')}}">链接管理</a>
             </li>
+             <li class="nav-item ">
+                    <a class="nav-link" href="{{url_for('main.search_order')}}">历史订单</a>
+             </li>
             <li class="nav-item">
                 {% if current_user.is_authenticated %}
                 <a class="nav-link " href="{{url_for('auth.logout')}}" style="float: right">注销登录</a>

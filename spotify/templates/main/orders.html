@@ -6,20 +6,24 @@
     {% for order in orders %}
         <div class="mycard" style="display: inline-block ;">
             <div class="card" style="width: 18rem; ">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{ order.email }}</li>
-                    <li class="list-group-item">{{ order.password }}</li>
-                    <li class="list-group-item">{{ order.timestamp|formattime }}</li>
-                    {% if order.status!="正在处理"  %}
-                    <li class="list-group-item " style="color: red"> {{ order.status }} <a class="btn btn-danger btn-sm"
-                                                                        style="float: right"
-                                                                        href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
-                     {% else %}
-                         <li class="list-group-item " style="color: yellow"> {{ order.status }} <a class="btn btn-danger btn-sm"
-                                                                        style="float: right"
-                                                                        href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
-                    {% endif %}
-                    </li>
+                <ul>
+                    <li><span>用户名: </span>{{ order.email }}</li>
+                    <li><span>密码: </span>{{ order.password }}</li>
+                    <li><span>下单时间: </span>{{ order.timestamp|formattime }}</li>
+                </ul>
+
+                {% if order.status!="正在处理" %}
+                    <li class="list-group-item " style="color: red"> {{ order.status }} <a
+                            class="btn btn-danger btn-sm"
+                            style="float: right"
+                            href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
+                        {% else %}
+                    <li class="list-group-item " style="color:#e5e600"> {{ order.status }}
+                    <a class="btn btn-danger btn-sm"
+                       style="float: right"
+                       href="{{ url_for('ajax.delete_order',order_id=order.id) }}">删除</a>
+                {% endif %}
+                </li>
                 </ul>
             </div>
         </div>
@@ -29,19 +33,17 @@
     <hr>
     <h3>已完成的订单</h3>
     <table class="table table-striped " style="border-bottom: 1px solid #f0f2f7;">
-        <thead>
-        <tr>
-            <td>邮箱</td>
-            <td>下单时间</td>
-            <td>到期时间</td>
-        </tr>
-        </thead>
+
         {% for order in orders_competed %}
-            <tr>
-                <td>{{ order.email }}</td>
-                <td>{{ order.timestamp|formattime }}</td>
-                <td>{{ order.expiretime|formattime }}</td>
-            </tr>
+            <div class="mycard" style="display: inline-block ;">
+                <div class="card" style="width: 18rem; ">
+                    <ul>
+                        <li><span>用户名: </span>{{ order.email }}</li>
+                        <li><span>下单时间: </span>{{ order.timestamp|formattime }}</li>
+                        <li><span>到期时间: </span>{{ order.expiretime|formattime }}</li>
+                    </ul>
+                </div>
+            </div>
         {% endfor %}
     </table>
 
