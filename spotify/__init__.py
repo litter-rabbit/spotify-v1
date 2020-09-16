@@ -90,6 +90,14 @@ def register_command(app):
         click.echo('Initialized admin.')
 
     @app.cli.command()
+    def test():
+        """Initialize the admin."""
+        order=Order(status='处理成功')
+        db.session.add(order)
+        db.session.commit()
+        click.echo('order submit.')
+
+    @app.cli.command()
     @click.option('--username', prompt=True, help='The username used to login.')
     @click.option('--password', prompt=True, hide_input=True,
                   confirmation_prompt=True, help='The password used to login.')
