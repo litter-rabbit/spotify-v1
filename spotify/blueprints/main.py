@@ -15,10 +15,10 @@ def index():
 
     now = datetime.datetime.utcnow()
     un_orders=Order.query.filter(Order.status!='处理成功').order_by(Order.timestamp.desc()).all()
-    orders_competed = Order.query.filter(Order.status=='处理成功').order_by(Order.timestamp.desc()).limit(current_app.config['PER_PAGE'])
     links=Link.query.filter(Link.isvalid==True).all()
     num_links=len(links)
-    today_order=Order.query.filter(Order.timestamp>=now-timedelta(days=1)).all()
+    today_order=Order.query.filter(Order.timestamp>=now-timedelta(days=1)).filter(Order.status=='处理成功').all()
+    orders_competed = today_order[0:12]
     num_completed = len(today_order)
     return render_template('main/index.html',orders=un_orders,num_completed=num_completed,num_links=num_links,orders_competed=orders_competed)
 
