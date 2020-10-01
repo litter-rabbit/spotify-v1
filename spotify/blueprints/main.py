@@ -15,8 +15,6 @@ def index():
 
     now = datetime.datetime.utcnow()
     new_now=datetime.datetime(now.year,now.month,now.day,14,59,59)
-
-
     un_orders=Order.query.filter(Order.status!='处理成功').order_by(Order.timestamp.desc()).all()
     links=Link.query.filter(Link.isvalid==True).all()
     num_links=len(links)

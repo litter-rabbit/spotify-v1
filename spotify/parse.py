@@ -71,7 +71,7 @@ def confirm_address(driver, link):
         address_input = WebDriverWait(driver, 15, 0.5).until(
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/form/main/div/section/div/div[2]/input'))
         )
-        address_input.send_keys('1')
+        address_input.send_keys('4002 S Ross Ln, Chanute, KS 66720, USA')
         find_adress = driver.find_element_by_xpath('/html/body/div[2]/form/main/div/div/button')
         find_adress.click()
         confirm_btn = WebDriverWait(driver, 15, 0.5).until(
@@ -94,14 +94,13 @@ def confirm_address(driver, link):
 
 
     except Exception as e:
-
         if driver.current_url == 'https://www.spotify.com/us/account/family/':
             return 'already family'
         else:
             try:
                 msg = WebDriverWait(driver, 30, 0.5).until(
                     EC.presence_of_element_located(
-                        (By.XPATH, '/html/body/div[2]/main/div/section/h1'))
+                        (By.TAG_NAME, 'h1'))
                 )
                 return msg.text
             except Exception as e:
@@ -174,7 +173,7 @@ def get(email, password, link):
     retry_times = 7
     result = confirm_address(driver, link)
     while result != 'success':
-        if result == 'already family':
+        if result == 'already family' or result=='You’re invited to Premium Family.':
             order.status = '已经是会员'
             db.session.commit()
             driver.close()
@@ -187,6 +186,9 @@ def get(email, password, link):
             driver.close()
             driver.quit()
             return None
+
+        # You’re invited to Premium Family.
+
         elif result=='retry_not_change_link' or result=='You need to live at the same address':
             #    时间超时了
             retry_times -= 1
