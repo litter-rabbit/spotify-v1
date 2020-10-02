@@ -71,11 +71,11 @@ def confirm_address(driver, link):
         address_input = WebDriverWait(driver, 15, 0.5).until(
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/form/main/div/section/div/div[2]/input'))
         )
-        address_input.send_keys('4002 S Ross Ln, Chanute, KS 66720, USA')
+        # 4002 S Ross Ln, Chanute, KS 66720, USA
+        address_input.send_keys('2')
         find_adress = WebDriverWait(driver,8,0.5).until(
             EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/form/main/div/div/button'))
         )
-
         find_adress.click()
         confirm_btn = WebDriverWait(driver, 15, 0.5).until(
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div/div/footer/button[2]'))
@@ -131,7 +131,7 @@ def get_link(order, driver):
 def get(email, password, link):
     option = webdriver.ChromeOptions()
     option.add_argument('--no-sandbox')
-    option.add_argument('--headless')
+    #option.add_argument('--headless')
     option.add_argument('--disable-gpu')
     option.add_argument('--hide-scrollbars')
     option.add_argument('blink-settings=imagesEnabled=false')
