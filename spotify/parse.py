@@ -72,7 +72,10 @@ def confirm_address(driver, link):
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/form/main/div/section/div/div[2]/input'))
         )
         address_input.send_keys('4002 S Ross Ln, Chanute, KS 66720, USA')
-        find_adress = driver.find_element_by_xpath('/html/body/div[2]/form/main/div/div/button')
+        find_adress = WebDriverWait(driver,8,0.5).until(
+            EC.presence_of_element_located((By.XPATH,'/html/body/div[2]/form/main/div/div/button'))
+        )
+
         find_adress.click()
         confirm_btn = WebDriverWait(driver, 15, 0.5).until(
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div/div/footer/button[2]'))
@@ -189,13 +192,15 @@ def get(email, password, link):
 
         # You’re invited to Premium Family.
 
-        elif result=='retry_not_change_link' or result=='You need to live at the same address':
+        elif result=='retry_not_change_link' or result=='You need to live at the same address' or result=='Enter your home address':
             #    时间超时了
             retry_times -= 1
             result = confirm_address(driver,link)
             if retry_times == 0:
                 if result=='You need to live at the same address':
                     order.status = '地址不匹配'
+                elif result=='Enter your home address':
+                    order.status = '地址错误'
                 else:
                     order.status='网络中断，稍后重试'
                 db.session.commit()
@@ -208,6 +213,8 @@ def get(email, password, link):
             driver.close()
             driver.quit()
             return None
+
+
         else:
             # 获取下个链接
             link.isvalid=False
