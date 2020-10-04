@@ -83,7 +83,7 @@ def confirm_address(driver, link):
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div/div/div/footer/button[2]'))
         )
         confirm_btn.click()
-        time.sleep(5)
+        time.sleep(2)
 
         if driver.current_url == 'https://www.spotify.com/us/family/join/confirmation/':
             return 'success'
@@ -161,7 +161,6 @@ def get(email, password, link):
             driver.close()
             driver.quit()
             return None
-
     # 修改账号地区
     retry_times = 7
     profile_result=change_profile(driver)
@@ -177,7 +176,7 @@ def get(email, password, link):
     # 进入邀请链接
     retry_times = 7
     result = confirm_address(driver, link)
-    while result != 'success':
+    while result != 'success' and result!='Welcome to Premium Family':
         if result == 'already family' or result=='You’re invited to Premium Family.':
             order.status = '已经是会员'
             db.session.commit()
@@ -215,8 +214,6 @@ def get(email, password, link):
             driver.close()
             driver.quit()
             return None
-
-
         else:
             # 获取下个链接
             link.isvalid=False

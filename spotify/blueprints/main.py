@@ -31,11 +31,10 @@ def links():
     per_page=current_app.config['PER_PAGE']
     page=request.args.get('page',1)
     page=int(page)
-    pagination=Link.query.filter(Link.isvalid==True).order_by(Link.timestamp.desc()).paginate(page,per_page)
-    links=pagination.items
+    links=Link.query.filter(Link.isvalid==True).all()
     pagination_bad=Link.query.filter(Link.isvalid!=True).order_by(Link.timestamp.desc()).paginate(page,per_page)
     bad_links=pagination_bad.items
-    return render_template('main/links.html',links=links,page=page,pagination=pagination,pagination_bad=pagination_bad,bad_links=bad_links)
+    return render_template('main/links.html',links=links,page=page,pagination_bad=pagination_bad,bad_links=bad_links)
 
 
 @main_bp.route('/search',methods=['GET','POST'])
