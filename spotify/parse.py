@@ -72,7 +72,8 @@ def confirm_address(driver, link):
             EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/form/main/div/section/div/div[2]/input'))
         )
         # 4002 S Ross Ln, Chanute, KS 66720, USA
-        address_input.send_keys('2')
+        # 4002 S Ross Ln, Chanute, KS 66720, USA
+        address_input.send_keys('4002 S Ross Ln, Chanute, KS 66720, USA')
 
         #'/html/body/div[2]/form/main/div/div/div/button'
         find_adress = WebDriverWait(driver,8,0.5).until(

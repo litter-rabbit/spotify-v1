@@ -97,6 +97,8 @@ def register_command(app):
         db.session.commit()
         click.echo('order submit.')
 
+
+
     @app.cli.command()
     @click.option('--username', prompt=True, help='The username used to login.')
     @click.option('--password', prompt=True, hide_input=True,
